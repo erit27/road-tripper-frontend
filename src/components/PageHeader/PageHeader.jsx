@@ -15,6 +15,7 @@ export default function PageHeader() {
       <Link to='/'><p className="pageHeader__nav--link">Home</p></Link>
       <Link to='/aboutus'><p className="pageHeader__nav--link">About Us</p></Link>
       <Link to='/gallery'><p className="pageHeader__nav--link">Gallery</p></Link>
+      <Link to='/login'><p className="pageHeader__nav--link">Log In</p></Link>
     </div>
   </div>
     
