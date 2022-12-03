@@ -1,0 +1,34 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/reset' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;  
+
+.login {
+  &__wrap {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: $rt1light;
+  }
+  &__left{
+    @include tablet {
+      width: 50%;
+      height: 100%;
+    }
+  }
+  &__right {
+    @include tablet {
+      width: 50%;
+    }
+  }
+  &__hero {
+    display: none;
+    @include tablet {
+      display: inline-block;
+      width: 100%;
+      height: 80vh;
+      object-fit: cover;
+    }
+    
+  }
+}

@@ -3,3 +3,27 @@
   src: url(../../assets/fonts/Aldrich-Regular.ttf);
   font-weight: 400;
 }
+
+@font-face {
+  font-family: "PlusJakartaSans";
+  src: url('../../assets/fonts/PlusJakartaSans-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+}
+
+@font-face {
+  font-family: "PlusJakartaSans";
+  src: url('../../assets/fonts/PlusJakartaSans-Medium.ttf') format('truetype');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+}
+
+@font-face {
+  font-family: "PlusJakartaSans";
+  src: url('../../assets/fonts/PlusJakartaSans-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+}
