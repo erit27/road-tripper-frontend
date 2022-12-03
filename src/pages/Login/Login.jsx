@@ -1,10 +1,26 @@
 import './Login.scss';
+import axios from 'axios';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import BodyTemplate from '../../components/BodyTemplate/BodyTemplate';
 import loginHero from '../../assets/images/images/login_hero.jpeg';
 import LoginComponent from '../../components/LoginComponent/LoginComponent';
 
-export default function Login({loggedIn, user, handleLogin}) {
+export default function Login({loggedIn, user, loadProfile, serverURL}) {
+  const handleLogin = (event) => {
+    event.preventDefault();
+    axios
+      .post(`${serverURL}/login`, {
+        username: event.target.username.value,
+        password: event.target.password.value
+      })
+      .then((response) => {
+        if(response.data.token) {
+          loadProfile(response.data.token);
+          localStorage.setItem('jwt_token', response.data.token);
+        }
+      })
+      .catch((err) => {console.log(err)})
+  }
   return (
     <>
       <PageHeader />

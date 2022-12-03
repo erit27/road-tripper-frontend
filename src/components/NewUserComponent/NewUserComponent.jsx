@@ -2,8 +2,12 @@ import './NewUserComponent.scss';
 import '../LoginComponent/LoginComponent.scss';
 import loginLogo from '../../assets/images/logos/logo_small_gold.svg';
 import motoLogo from '../../assets/images/logos/moto_logo.svg';
+import { useState } from 'react';
+import axios from 'axios';
 
-export default function NewUserComponent() {
+export default function NewUserComponent({handleSignup}) {
+
+
   return (
     <div className="newUser__wrapper">
       <div className="newUser__logo">
@@ -12,7 +16,7 @@ export default function NewUserComponent() {
       </div>
       <div className="newUser__hello">New here? Let's get started:</div>
       <div className="newUser__form">
-        <form action="submit" className='newUser__form--form form'>
+        <form onSubmit={handleSignup} className='newUser__form--form form'>
           <div className="form__element">
             Username:
             <input type="text" name='username' />
