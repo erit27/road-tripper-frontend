@@ -32,12 +32,37 @@ export default function App() {
       })
       .then((response) => {
         setLoggedIn(true);
+        console.log(response.data)
         setUser(response.data.user);
+        console.log(user)
       })
       .catch((error) => {
         console.log(error)
       })
   }
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    axios
+      .post(`${serverURL}/login`, {
+        username: event.target.username.value,
+        password: event.target.password.value
+      })
+      .then((response) => {
+        if(response.data.token) {
+          console.log('signed in success!')
+          loadProfile(response.data.token);
+          localStorage.setItem('jwt_token', response.data.token);
+        }
+      })
+      .catch((err) => {console.log(err)})
+  }
+
+  const handleLogout = () => {
+    setLoggedIn(false);
+    setUser(null);
+    localStorage.removeItem('jwt_token');
+  };
 
   return (
     <div className="App">
@@ -46,7 +71,7 @@ export default function App() {
           <Route path='/' element={<LandingPage />} />
           <Route path='/aboutus' element={<AboutUs />} />
           <Route path='/gallery' element={<Gallery />} />
-          <Route path='/login' element={<Login />} /> 
+          <Route path='/login' element={<Login loggedIn={loggedIn} user={user} handleLogin={handleLogin} />} /> 
           <Route path='/createaccount' element={<CreateAccount />} />
         </Routes>
       </BrowserRouter>

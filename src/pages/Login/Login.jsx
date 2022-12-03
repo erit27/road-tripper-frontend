@@ -4,7 +4,7 @@ import BodyTemplate from '../../components/BodyTemplate/BodyTemplate';
 import loginHero from '../../assets/images/images/login_hero.jpeg';
 import LoginComponent from '../../components/LoginComponent/LoginComponent';
 
-export default function Login() {
+export default function Login({loggedIn, user, handleLogin}) {
   return (
     <>
       <PageHeader />
@@ -14,7 +14,7 @@ export default function Login() {
           <img src={loginHero} alt="Motorcycle in mountains" className='login__hero'/>
         </div>
         <div className="login__right">
-          <LoginComponent />
+          <LoginComponent loggedIn={loggedIn} user={user} handleLogin={handleLogin} />
         </div>
       </div>
     </>
