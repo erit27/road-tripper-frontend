@@ -23,7 +23,7 @@ export default function Login({loggedIn, user, loadProfile, serverURL}) {
   }
   return (
     <>
-      <PageHeader />
+  
       
       <div className="login__wrap">
         <div className="login__left">

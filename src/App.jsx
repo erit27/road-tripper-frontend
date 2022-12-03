@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import LandingPage from './pages/LandingPage/LandingPage';
+import PageHeader from './components/PageHeader/PageHeader';
 import AboutUs from './pages/AboutUs/AboutUs';
 import Gallery from './pages/Gallery/Gallery';
 import Login from './pages/Login/Login';
@@ -65,8 +66,10 @@ export default function App() {
   }
 
   return (
-    <div className="App">
+    
       <BrowserRouter>
+        <div className="App">
+          <PageHeader loggedIn={loggedIn} handleLogout={handleLogout} /> 
         <Routes>
           <Route path='/' element={<LandingPage />} />
           <Route path='/aboutus' element={<AboutUs />} />
@@ -74,7 +77,8 @@ export default function App() {
           <Route path='/login' element={<Login loggedIn={loggedIn} user={user} loadProfile={loadProfile} serverURL={serverURL}/>} /> 
           <Route path='/createaccount' element={<CreateAccount handleSignup={handleSignup}/>} />
         </Routes>
-      </BrowserRouter>
-    </div>
+        </div>
+      </ BrowserRouter>
+    
   );
 }

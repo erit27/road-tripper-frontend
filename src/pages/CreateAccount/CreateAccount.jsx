@@ -8,7 +8,7 @@ export default function CreateAccount({handleSignup}) {
 
   return (
     <>
-      <PageHeader />
+
       <div className="login__wrap">
         <div className="login__left">
           <img src={loginHero} alt="Motorcycle in mountains" className='login__hero'/>

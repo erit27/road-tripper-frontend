@@ -1,9 +1,10 @@
 import './PageHeader.scss';
-import { Link } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import mobileLogo from '../../assets/images/logos/logo_small_blue.svg';
 import tabletLogo from '../../assets/images/logos/logo_lg_blue.svg';
 
-export default function PageHeader() {
+export default function PageHeader(props) { 
+  const navigate = useNavigate();
   return (
     <>
   <div className="pageHeader__wrapper">
@@ -16,6 +17,14 @@ export default function PageHeader() {
       <Link to='/aboutus'><p className="pageHeader__nav--link">About Us</p></Link>
       <Link to='/gallery'><p className="pageHeader__nav--link">Gallery</p></Link>
       <Link to='/login'><p className="pageHeader__nav--link">Log In</p></Link>
+      <button 
+        onClick={() => {
+          props.handleLogout()
+          navigate('/');
+        }} 
+        className="pageHeader__nav--link">
+          Log Out
+      </button>
     </div>
   </div>
     

@@ -5,7 +5,7 @@ import BodyTemplate from '../../components/BodyTemplate/BodyTemplate';
 export default function LandingPage() {
   return (
     <>
-      <PageHeader />
+
       <BodyTemplate />
     </>
   )
