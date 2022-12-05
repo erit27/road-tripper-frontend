@@ -19,7 +19,7 @@ export default function Login({loggedIn, user, loadProfile, serverURL}) {
           localStorage.setItem('jwt_token', response.data.token);
         }
       })
-      .catch((err) => {console.log(err)})
+      .catch((err) => {console.log(err, `this one`)})
   }
   return (
     <>

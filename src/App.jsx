@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import LandingPage from './pages/LandingPage/LandingPage';
 import PageHeader from './components/PageHeader/PageHeader';
@@ -18,6 +18,8 @@ export default function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
   const [isSignedUp, setIsSignedUp] = useState(false);
+
+  
 
   useEffect( () => {
     const jwtToken = localStorage.getItem('jwt_token');
@@ -59,7 +61,7 @@ export default function App() {
       })
       .then( (response) => {
         if(response.data.success) {
-          setIsSignedUp(true)
+          setIsSignedUp(true);
         }
       })
       .catch(err=> console.log(err))
