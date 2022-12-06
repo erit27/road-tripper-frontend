@@ -3,6 +3,10 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import mobileLogo from '../../assets/images/logos/logo_small_blue.svg';
 import tabletLogo from '../../assets/images/logos/logo_lg_blue.svg';
 import homeIcon from '../../assets/images/icons/posts.svg';
+import galleryIcon from '../../assets/images/icons/gallery.svg';
+import mapIcon from '../../assets/images/icons/map.svg';
+import loginIcon from '../../assets/images/icons/login.svg';
+import logoutIcon from '../../assets/images/icons/logout.svg';
 
 export default function PageHeader(props) { 
   const navigate = useNavigate();
@@ -19,15 +23,25 @@ export default function PageHeader(props) {
         <img src={homeIcon} alt="home icon" className='displayNone__tablet' />
       </Link>
         
-      <Link to='/aboutus'><p className="pageHeader__nav--link">About Us</p></Link>
-      <Link to='/gallery'><p className="pageHeader__nav--link">Gallery</p></Link>
-      <Link to='/login'><p className="pageHeader__nav--link">Log In</p></Link>
+      <Link to='/map'>
+        <p className="pageHeader__nav--link displayNone__mobile">Map</p>
+        <img src={mapIcon} alt="home icon" className='displayNone__tablet' />
+      </Link>
+      <Link to='/gallery'>
+        <p className="pageHeader__nav--link displayNone__mobile">Gallery</p>
+        <img src={galleryIcon} alt="home icon" className='displayNone__tablet' />
+      </Link>
+      <Link to='/login'>
+        <p className="pageHeader__nav--link displayNone__mobile">Log In</p>
+        <img src={loginIcon} alt="home icon" className='displayNone__tablet' />
+      </Link>
       <button 
         onClick={() => {
           props.handleLogout()
           navigate('/');
         }} 
         className="pageHeader__nav--link">
+          <img src={logoutIcon} alt="logout icon"></img>
           Log Out
       </button>
     </div>
