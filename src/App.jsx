@@ -1,6 +1,3 @@
-import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate} from 'react-router-dom';
-import axios from 'axios';
 import LandingPage from './pages/LandingPage/LandingPage';
 import PageHeader from './components/PageHeader/PageHeader';
 import AboutUs from './pages/AboutUs/AboutUs';
@@ -8,18 +5,18 @@ import Gallery from './pages/Gallery/Gallery';
 import Login from './pages/Login/Login';
 import CreateAccount from './pages/CreateAccount/CreateAccount';
 import './App.scss';
+import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import axios from 'axios';
 
 const serverURL = 'http://localhost:8080';
 const loginURL = `${serverURL}/login`;
 const signupURL = `${loginURL}/createaccount`;
 
-
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
   const [isSignedUp, setIsSignedUp] = useState(false);
-
-  
 
   useEffect( () => {
     const jwtToken = localStorage.getItem('jwt_token');
@@ -50,7 +47,7 @@ export default function App() {
     localStorage.removeItem('jwt_token');
   };
 
-  const handleSignup = (event) => {
+  const handleSignup = (event, salt) => {
     event.preventDefault();
     axios
       .post(`${serverURL}/createaccount`, {

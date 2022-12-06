@@ -35,3 +35,18 @@
     flex-direction: column;
   }
 }
+
+.displayNone {
+  &__mobile{
+    display: none;
+    @include tablet {
+    display: block;
+  }
+  }
+  &__tablet {
+    display: block;
+    @include tablet {
+      display: none;
+    }
+  }
+}
