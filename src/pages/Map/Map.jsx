@@ -2,7 +2,7 @@ import './Map.scss';
 import { useMemo } from 'react';
 import { GoogleMap, useLoadScript, MarkerF } from '@react-google-maps/api'
 
-const api_key = 'AIzaSyDgxhEzF5gH9p5qnCFI6GVypkKffMYzVJw';
+
 const api_url = 'https://maps.googleapis.com/maps/api/js?key='
 
 
