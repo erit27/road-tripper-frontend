@@ -8,10 +8,10 @@ import mapIcon from '../../assets/images/icons/map.svg';
 import loginIcon from '../../assets/images/icons/login.svg';
 import logoutIcon from '../../assets/images/icons/logout.svg';
 
-export default function PageHeader(props) { 
+export default function PageHeader({loggedIn, handleLogout}) { 
   const navigate = useNavigate();
   return (
-    <>
+
   <div className="pageHeader__wrapper">
     <div className="pageHeader__logo">
       <Link to='/' ><img src={mobileLogo} alt="not loading" className='pageHeader__logo--mobile'/></Link>
@@ -20,33 +20,34 @@ export default function PageHeader(props) {
     <div className="pageHeader__nav">
       <Link to='/'>
         <p className="pageHeader__nav--link displayNone__mobile">Home</p>
-        <img src={homeIcon} alt="home icon" className='displayNone__tablet' />
+        <img src={homeIcon} alt="home icon" className='displayNone__tablet icon__header' />
       </Link>
         
       <Link to='/map'>
         <p className="pageHeader__nav--link displayNone__mobile">Map</p>
-        <img src={mapIcon} alt="home icon" className='displayNone__tablet' />
+        <img src={mapIcon} alt="home icon" className='displayNone__tablet icon__header' />
       </Link>
       <Link to='/gallery'>
         <p className="pageHeader__nav--link displayNone__mobile">Gallery</p>
-        <img src={galleryIcon} alt="home icon" className='displayNone__tablet' />
+        <img src={galleryIcon} alt="home icon" className='displayNone__tablet icon__header' />
       </Link>
       <Link to='/login'>
         <p className="pageHeader__nav--link displayNone__mobile">Log In</p>
-        <img src={loginIcon} alt="home icon" className='displayNone__tablet' />
+        <img src={loginIcon} alt="home icon" className='displayNone__tablet icon__header' />
       </Link>
-      <button 
+      {loggedIn && (
+        <button 
         onClick={() => {
-          props.handleLogout()
+          handleLogout()
           navigate('/');
         }} 
         className="pageHeader__nav--link">
           <img src={logoutIcon} alt="logout icon"></img>
           Log Out
       </button>
+      )}
     </div>
   </div>
-    
-    </>
+  
   )
 }

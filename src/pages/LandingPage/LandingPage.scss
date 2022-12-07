@@ -2,3 +2,25 @@
 @use '../../styles/partials/reset' as *;
 @use '../../styles/partials/typography' as *;
 @use '../../styles/partials/variables' as *;  
+
+.posts {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+  @include tablet {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  &__single {
+    width: 100%;
+    @include tablet {
+      width: 40%;
+    }
+    @include desktop {
+      width: 30%;
+    }
+  }
+}

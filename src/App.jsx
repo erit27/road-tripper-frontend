@@ -4,6 +4,7 @@ import AboutUs from './pages/AboutUs/AboutUs';
 import Gallery from './pages/Gallery/Gallery';
 import Login from './pages/Login/Login';
 import Map from './pages/Map/Map';
+import PostPage from './pages/PostPage/PostPage';
 import CreateAccount from './pages/CreateAccount/CreateAccount';
 import './App.scss';
 import { useState, useEffect } from 'react';
@@ -72,6 +73,7 @@ export default function App() {
           <PageHeader loggedIn={loggedIn} handleLogout={handleLogout} /> 
         <Routes>
           <Route path='/' element={<LandingPage />} />
+          <Route path='/post' element={<PostPage />} />
           <Route path='/aboutus' element={<AboutUs />} />
           <Route path='/gallery' element={<Gallery />} />
           <Route path='/map' element={<Map />} />

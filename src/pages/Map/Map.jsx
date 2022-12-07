@@ -2,10 +2,7 @@ import './Map.scss';
 import { useMemo } from 'react';
 import { GoogleMap, useLoadScript, MarkerF } from '@react-google-maps/api'
 
-
-const api_url = 'https://maps.googleapis.com/maps/api/js?key='
-
-
+const API_KEY = process.env.REACT_APP_API_KEY || ``;
 
 function MapLoad() {
   const locations = [
@@ -30,13 +27,13 @@ function MapLoad() {
 
   return <GoogleMap zoom= {3} center={center} mapContainerClassName='map__container'> 
     {/* <Marker position={{lat: locations[0].lat, long: locations[0].long}} /> */}
-    <MarkerF key={api_key} position={{lat: -20, lng: -65}} />
+    <MarkerF key={API_KEY} position={{lat: -20, lng: -65}} />
   </GoogleMap>
 }
 
 export default function Map() {
   const { isLoaded } = useLoadScript({
-      googleMapsApiKey: api_key
+      googleMapsApiKey: process.env.REACT_APP_API_KEY
     })
 
     if( !isLoaded) return <div>Loading...</div>

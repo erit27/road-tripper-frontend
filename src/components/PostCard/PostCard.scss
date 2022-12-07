@@ -1,0 +1,43 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.card {
+  &__wrapper {
+    width: 80%;
+    height: 100%;
+    background-color: $rt2dark;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    @include tablet {
+      width: 40%;
+    }
+    @include desktop {
+      width: 25%;
+    }
+    }
+  &__top {
+    border-radius: 6px;
+    display: flex;
+    width: 100%;
+  }
+  &__hero {
+    width: 100%;
+    object-fit: contain;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+  }
+  &__details {
+    color: $rt1light;
+    padding: 1rem 1rem;
+    border-top: solid 2px $rt1light;
+    @include m-h3;
+  }
+  &__title {
+    color: $rt1light;
+    padding: 0 1rem 1rem 1rem;
+    @include m-h1;
+  }
+}
