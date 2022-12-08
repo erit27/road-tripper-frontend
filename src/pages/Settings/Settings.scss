@@ -1,0 +1,19 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/reset' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;  
+
+.settings {
+  @include m-h1;
+  @include tablet {
+    @include dt-h1;
+  }
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+}

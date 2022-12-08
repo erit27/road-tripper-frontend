@@ -6,6 +6,7 @@ import Login from './pages/Login/Login';
 import Map from './pages/Map/Map';
 import PostPage from './pages/PostPage/PostPage';
 import CreateAccount from './pages/CreateAccount/CreateAccount';
+import Settings from './pages/Settings/Settings';
 import './App.scss';
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
@@ -79,6 +80,7 @@ export default function App() {
           <Route path='/map' element={<Map />} />
           <Route path='/login' element={<Login loggedIn={loggedIn} user={user} loadProfile={loadProfile} serverURL={serverURL}/>} /> 
           <Route path='/createaccount' element={<CreateAccount handleSignup={handleSignup}/>} />
+          <Route path='/settings' element={<Settings loggedIn={loggedIn} serverURL={serverURL}/>} />
         </Routes>
         </div>
       </ BrowserRouter>

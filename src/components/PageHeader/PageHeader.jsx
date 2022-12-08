@@ -7,6 +7,7 @@ import galleryIcon from '../../assets/images/icons/gallery.svg';
 import mapIcon from '../../assets/images/icons/map.svg';
 import loginIcon from '../../assets/images/icons/login.svg';
 import logoutIcon from '../../assets/images/icons/logout.svg';
+import settingsIcon from '../../assets/images/icons/settings.svg';
 
 export default function PageHeader({loggedIn, handleLogout}) { 
   const navigate = useNavigate();
@@ -34,6 +35,10 @@ export default function PageHeader({loggedIn, handleLogout}) {
       <Link to='/login'>
         <p className="pageHeader__nav--link displayNone__mobile">Log In</p>
         <img src={loginIcon} alt="home icon" className='displayNone__tablet icon__header' />
+      </Link>
+      <Link to='/settings' >
+        <p className="pageHeader__nav--link displayNone__mobile">Settings</p>
+        <img src={settingsIcon} alt="home icon" className='displayNone__tablet icon__header' />
       </Link>
       {loggedIn && (
         <button 

@@ -13,25 +13,13 @@ export default function LandingPage() {
 
   useEffect(() => {
     axios
-      .get(`${DB_URL}/posts`)
+      .get(`${DB_URL}/posts/postinfo`)
       .then((response) => {
         setPosts(response.data);
         console.log(response.data)
       })
       .catch((err) => console.log(err))
   }, [])
-
-  useEffect (() => {
-    axios
-      .get(`${DB_URL}/users`)
-      .then((response) => {
-        setUsers(response.data);
-        console.log(response.data);
-        
-      })
-      .catch((err) => console.log(err))
-  }, [posts])
-
   
 
   return (
@@ -39,17 +27,13 @@ export default function LandingPage() {
       {posts.map((post) => (
         <PostCard 
         className='posts_single'
-        userId={post.userId}
         title={post.title}
         postId={post.id}
-        heroUrl={post.heroPhotoUrl}
+        heroUrl={post.hero_photo_url}
+        name={post.first_name}
+        createdAt={post.created_at}
       />
       ))}
-      {/* <PostCard className='posts_single'/>
-
-      <PostCard className='posts_single'/>
-      <PostCard className='posts_single'/>
-      <PostCard className='posts_single'/> */}
     </div>
 
       
