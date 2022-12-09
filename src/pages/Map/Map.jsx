@@ -1,43 +1,39 @@
 import './Map.scss';
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { GoogleMap, useLoadScript, MarkerF } from '@react-google-maps/api'
+import axios from 'axios';
 
 const API_KEY = process.env.REACT_APP_API_KEY || ``;
 
-function MapLoad() {
-  const locations = [
-    {
-      lat: '-13.16111059482145',
-      long: '-74.22765197922901'
-    },
-    {
-      lat: '-33.45999635003689',
-      long: '-70.64562002541481'
-    },
-    {
-      lat: '10.37216226417554',
-      long: '-75.50766986918126'
-    },
-    {
-      lat: '-0.19090141314042',
-      long: '-78.48310673463420'
-    },
-  ]
+function MapLoad({serverURL}) {
+  const [locations, setLocations] = useState([]);
   const center = useMemo(() => ({lat: -20, lng: -65}), [])
 
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/locations`)
+      .then((response) => {
+        setLocations(response.data)
+      })
+      .catch((err) => console.log(err))
+  }, [])
+ 
+
   return <GoogleMap zoom= {3} center={center} mapContainerClassName='map__container'> 
-    {/* <Marker position={{lat: locations[0].lat, long: locations[0].long}} /> */}
-    <MarkerF key={API_KEY} position={{lat: -20, lng: -65}} />
+    {locations.map((loc) => (
+      <MarkerF key={loc.lat} position={{lat: loc.lat, lng: loc.long}} />
+      // key={API_KEY} was above before
+    ))}
   </GoogleMap>
 }
 
-export default function Map() {
+export default function Map({serverURL}) {
   const { isLoaded } = useLoadScript({
       googleMapsApiKey: process.env.REACT_APP_API_KEY
     })
 
     if( !isLoaded) return <div>Loading...</div>
-  return <MapLoad />
+  return <MapLoad serverURL={serverURL} />
 
 }
 
