@@ -28,7 +28,7 @@ export default function UserPermissions({serverURL}) {
         axios
           .put(`${serverURL}/users/updatepermissions`, userPermissionArray[i])
           .then(() => {
-          console.log('added')
+          // console.log('added')
         })
           .catch((err) => console.log(err))
       } else if ( checkedState[i] === false) {
@@ -36,14 +36,14 @@ export default function UserPermissions({serverURL}) {
         axios
           .put(`${serverURL}/users/updatepermissions`, userPermissionArray[i])
           .then(() => {
-          console.log('added')
+          // console.log('added')
         })
           .catch((err) => console.log(err))
       } else {
         console.log('something went wrong')
       }
     }
-    console.log(userPermissionArray)
+    // console.log(userPermissionArray)
     
   }
 
@@ -57,7 +57,7 @@ export default function UserPermissions({serverURL}) {
   }, [])
 
   useEffect( () => {
-    console.log(`users:`, users)
+    // console.log(`users:`, users)
     const userState = new Array(users.length).fill(false);
     setCheckedState(userState)
   }, [users])
