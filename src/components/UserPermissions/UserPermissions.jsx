@@ -16,13 +16,36 @@ export default function UserPermissions({serverURL}) {
     setCheckedState(updatedCheckedState);
   }
 
-  // const handlePermissionSubmit = (event) => {
-  //   event.preventDefault();
-  //   axios
-  //     .put()
-  //     .then()
-  //     .catch((err))
-  // }
+  const handlePermissionSubmit = (event) => {
+    event.preventDefault();
+    const userPermissionArray= users.map(user=> ({
+      id: user.id,
+      access: user.access,
+    }))
+    for (let i=0; i<checkedState.length; i++) {
+      if (checkedState[i] === true) {
+        userPermissionArray[i].access = 'family';
+        axios
+          .put(`${serverURL}/users/updatepermissions`, userPermissionArray[i])
+          .then(() => {
+          console.log('added')
+        })
+          .catch((err) => console.log(err))
+      } else if ( checkedState[i] === false) {
+        userPermissionArray[i].access = 'public'
+        axios
+          .put(`${serverURL}/users/updatepermissions`, userPermissionArray[i])
+          .then(() => {
+          console.log('added')
+        })
+          .catch((err) => console.log(err))
+      } else {
+        console.log('something went wrong')
+      }
+    }
+    console.log(userPermissionArray)
+    
+  }
 
   useEffect( () => {
     axios
@@ -48,7 +71,7 @@ export default function UserPermissions({serverURL}) {
     <>
     <div className="up__wrap">
       <h1 className="up__title">Adjust Permissions</h1>
-      <form >
+      <form onSubmit={handlePermissionSubmit}>
       <ul className="up__list">
         {users.map(({id, access, username, firstName, lastName}, index) => {
           return (
