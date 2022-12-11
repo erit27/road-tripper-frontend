@@ -14,7 +14,7 @@ export default function Photos({serverURL}) {
       .get(`${serverURL}/photos`)
       .then((response) => {
         setPhotos(response.data);
-        console.log(response.data)
+        // console.log(response.data)
       })
       .catch((err) => console.log(err))
   }, [])

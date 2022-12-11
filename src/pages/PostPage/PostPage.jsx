@@ -7,10 +7,6 @@ import SinglePost from '../../components/SinglePost/SinglePost'
 export default function PostPage({serverUrl}) {
   const {id} = useParams();
 
-  // useEffect(()=> {
-  //   let postId = id;
-  //   console.log(postId)
-  // }, [id])
 
   return (
     <>

@@ -9,7 +9,6 @@ export default function SinglePost({postId, serverUrl}) {
 
   useEffect( () => {
     const jwtToken = localStorage.getItem('jwt_token');
-    console.log(`${serverUrl}/posts/${postId}`)
     if (jwtToken) {
       axios
         .get(`${serverUrl}/posts/${postId}`, {
