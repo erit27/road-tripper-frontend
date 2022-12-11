@@ -76,7 +76,7 @@ export default function App() {
           <Route path='/' element={<LandingPage />} />
           <Route path='/post' element={<PostPage />} />
           <Route path='/aboutus' element={<AboutUs />} />
-          <Route path='/gallery' element={<Gallery />} />
+          <Route path='/gallery' element={<Gallery serverURL={serverURL}/>} />
           <Route path='/map' serverURL={serverURL} element={<Map />} />
           <Route path='/login' element={<Login loggedIn={loggedIn} user={user} loadProfile={loadProfile} serverURL={serverURL}/>} /> 
           <Route path='/createaccount' element={<CreateAccount handleSignup={handleSignup}/>} />

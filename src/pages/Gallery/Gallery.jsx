@@ -1,12 +1,13 @@
 import './Gallery.scss';
 import PageHeader from '../../components/PageHeader/PageHeader';
 import BodyTemplate from '../../components/BodyTemplate/BodyTemplate';
+import Photos from '../../components/Photos/Photos';
 
-export default function Gallery() {
+export default function Gallery({serverURL}) {
   return (
     <>
 
-      <BodyTemplate />
+      <Photos serverURL={serverURL}/>
     </>
   )
 }
