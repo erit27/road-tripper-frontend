@@ -25,6 +25,7 @@ export default function App() {
     const jwtToken = localStorage.getItem('jwt_token');
     if (jwtToken) {
       loadProfile(jwtToken);
+      console.log(user)
     }
   }, [])
 
@@ -38,6 +39,7 @@ export default function App() {
       .then((response) => {
         setLoggedIn(true);
         setUser(response.data.user);
+        console.log('user:', response.data.user)
       })
       .catch((error) => {
         console.log(error)
@@ -73,8 +75,8 @@ export default function App() {
         <div className="App">
           <PageHeader loggedIn={loggedIn} handleLogout={handleLogout} /> 
         <Routes>
-          <Route path='/' element={<LandingPage />} />
-          <Route path='/post' element={<PostPage />} />
+          <Route path='/' element={<LandingPage serverUrl={serverURL}/>} />
+          <Route path='/posts/:id' element={<PostPage serverUrl={serverURL}/>} />
           <Route path='/aboutus' element={<AboutUs />} />
           <Route path='/gallery' element={<Gallery serverURL={serverURL}/>} />
           <Route path='/map' serverURL={serverURL} element={<Map />} />

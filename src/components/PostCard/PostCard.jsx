@@ -1,13 +1,13 @@
 import './PostCard.scss';
 import { Link } from 'react-router-dom';
 
-export default function PostCard({postId, title, heroUrl, name, createdAt}) {
+export default function PostCard({postId, title, heroUrl, name, createdAt, serverUrl}) {
   const linkPath = `/posts/${postId}`
   const heroPath = `${heroUrl}`
   return (
    
     <div className="card__wrapper">
-      <Link to={linkPath} >
+      <Link to={linkPath} postId={postId} serverUrl={serverUrl}>
       <div className="card__top">
         <img className='card__hero' src={heroUrl} alt="" />
       </div>

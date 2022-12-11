@@ -1,13 +1,11 @@
 import './LandingPage.scss';
-import PageHeader from '../../components/PageHeader/PageHeader';
-import BodyTemplate from '../../components/BodyTemplate/BodyTemplate';
 import PostCard from '../../components/PostCard/PostCard';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const DB_URL = process.env.REACT_APP_SERVER_URL || ``;
 
-export default function LandingPage() {
+export default function LandingPage({serverUrl}) {
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([])
 
@@ -32,6 +30,7 @@ export default function LandingPage() {
         heroUrl={post.hero_photo_url}
         name={post.first_name}
         createdAt={post.created_at}
+        serverUrl={serverUrl}
       />
       ))}
     </div>
