@@ -25,7 +25,6 @@ export default function App() {
     const jwtToken = localStorage.getItem('jwt_token');
     if (jwtToken) {
       loadProfile(jwtToken);
-      console.log(user)
     }
   }, [])
 

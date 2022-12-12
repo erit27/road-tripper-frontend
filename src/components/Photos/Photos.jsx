@@ -19,18 +19,18 @@ export default function Photos({serverURL}) {
       .catch((err) => console.log(err))
   }, [])
 
-  const cld = new Cloudinary({
-    cloud: {
-      cloudName: 'dgmhbuw8l'
-    }
-  })
+  // const cld = new Cloudinary({
+  //   cloud: {
+  //     cloudName: 'dgmhbuw8l'
+  //   }
+  // })
 
   return (
     <div>
       <div className="images__gallery">
         {photos.map(photo => {
           return (
-            <img src={photo.secure_url} alt={photo.public_id} width='200px' height='200px' />
+            <img key ={photo.public_id} src={photo.secure_url} alt={photo.public_id} width='200px' height='200px' />
           )
         })}
       </div>
