@@ -5,18 +5,29 @@
 
 .login {
   &__wrap {
+    background-image: url('../../assets/images/images/login_hero.jpeg');
+    background-size: cover;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     width: 100%;
-    background-color: $rt1light;
+    @include tablet {
+      background-image: none;
+      background-color: $rt1light;
+    }
   }
   &__left{
+    display: none;
     @include tablet {
+      display: inline-block;
       width: 50%;
       height: 100%;
     }
   }
   &__right {
+    margin: 1rem;
+    padding: 2rem;
+    background-color: rgb(244, 243, 246, 0.8);
     @include tablet {
       width: 50%;
     }

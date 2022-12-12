@@ -19,18 +19,16 @@ export default function Login({loggedIn, user, loadProfile, serverURL}) {
           localStorage.setItem('jwt_token', response.data.token);
         }
       })
-      .catch((err) => {console.log(err, `there was an error logging you in (FE)`)})
-  }
+      .catch((err) => {console.log(err, `there was an error logging you in `)})
+    }
   return (
     <>
-  
-      
       <div className="login__wrap">
         <div className="login__left">
           <img src={loginHero} alt="Motorcycle in mountains" className='login__hero'/>
         </div>
         <div className="login__right">
-          <LoginComponent loggedIn={loggedIn} user={user} handleLogin={handleLogin} />
+          <LoginComponent handleLogin={handleLogin} loggedIn={loggedIn} user={user} serverUrl={serverURL} loadProfile={loadProfile}/>
         </div>
       </div>
     </>

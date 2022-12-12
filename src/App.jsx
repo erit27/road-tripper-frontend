@@ -18,6 +18,7 @@ const signupURL = `${loginURL}/createaccount`;
 
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [access, setAccess] = useState('public')
   const [user, setUser] = useState(null);
   const [isSignedUp, setIsSignedUp] = useState(false);
 
@@ -38,7 +39,9 @@ export default function App() {
       .then((response) => {
         setLoggedIn(true);
         setUser(response.data.user);
+        setAccess(response.data.user.access)
         console.log('user:', response.data.user)
+        console.log('access: ', (response.data.user.access))
       })
       .catch((error) => {
         console.log(error)
@@ -48,10 +51,11 @@ export default function App() {
   const handleLogout = () => {
     setLoggedIn(false);
     setUser(null);
+    setAccess('public')
     localStorage.removeItem('jwt_token');
   };
 
-  const handleSignup = (event, salt) => {
+  const handleSignup = (event) => {
     event.preventDefault();
     axios
       .post(`${serverURL}/createaccount`, {
@@ -72,7 +76,7 @@ export default function App() {
     
       <BrowserRouter>
         <div className="App">
-          <PageHeader loggedIn={loggedIn} handleLogout={handleLogout} /> 
+          <PageHeader loggedIn={loggedIn} handleLogout={handleLogout} access={access}/> 
         <Routes>
           <Route path='/' element={<LandingPage serverUrl={serverURL}/>} />
           <Route path='/posts/:id' element={<PostPage serverUrl={serverURL}/>} />
@@ -81,7 +85,7 @@ export default function App() {
           <Route path='/map' serverURL={serverURL} element={<Map />} />
           <Route path='/login' element={<Login loggedIn={loggedIn} user={user} loadProfile={loadProfile} serverURL={serverURL}/>} /> 
           <Route path='/createaccount' element={<CreateAccount handleSignup={handleSignup}/>} />
-          <Route path='/settings' element={<Settings loggedIn={loggedIn} serverURL={serverURL}/>} />
+          <Route access={access} path='/settings' element={<Settings loggedIn={loggedIn} serverURL={serverURL}/>} />
         </Routes>
         </div>
       </ BrowserRouter>

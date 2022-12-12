@@ -11,20 +11,31 @@
     justify-content: space-around;
   }
   &__logo {
-    height: 20%;
     display: flex;
     align-items: center;
   }
   &__hello {
-    height: 10%;
+  
     font-weight: 600;
     display: flex;
     align-items: center;
   }
   &__form {
-    height: 50%;
+    margin: 1rem;
   }
   &__new {
-    height: 20%;
+    margin: 1rem;
+    color: black;
+    @include m-h2;
+    @include tablet {
+      @include dt-h2;
+    }
+  }
+  &__welcome {
+    @include m-h2;
+    padding: 1rem;
+    @include tablet {
+      @include dt-h2;
+    }
   }
 }

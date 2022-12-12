@@ -9,7 +9,7 @@ import loginIcon from '../../assets/images/icons/login.svg';
 import logoutIcon from '../../assets/images/icons/logout.svg';
 import settingsIcon from '../../assets/images/icons/settings.svg';
 
-export default function PageHeader({loggedIn, handleLogout}) { 
+export default function PageHeader({loggedIn, handleLogout, access}) { 
   const navigate = useNavigate();
   return (
 
@@ -32,23 +32,27 @@ export default function PageHeader({loggedIn, handleLogout}) {
         <p className="pageHeader__nav--link displayNone__mobile">Gallery</p>
         <img src={galleryIcon} alt="home icon" className='displayNone__tablet icon__header' />
       </Link>
-      <Link to='/login'>
+      { !loggedIn && (
+        <Link to='/login'>
         <p className="pageHeader__nav--link displayNone__mobile">Log In</p>
         <img src={loginIcon} alt="home icon" className='displayNone__tablet icon__header' />
       </Link>
-      <Link to='/settings' >
+      )}
+      {access === 'admin' && (
+        <Link to='/settings' >
         <p className="pageHeader__nav--link displayNone__mobile">Settings</p>
         <img src={settingsIcon} alt="home icon" className='displayNone__tablet icon__header' />
       </Link>
+      )}
       {loggedIn && (
         <button 
         onClick={() => {
           handleLogout()
           navigate('/');
         }} 
-        className="pageHeader__nav--link">
-          <img src={logoutIcon} alt="logout icon"></img>
-          Log Out
+        className="pageHeader__nav--link pageHeader__btn">
+          <img src={logoutIcon} alt="logout icon" className='displayNone__tablet icon__header'></img>
+          <p className='displayNone__mobile'>Log Out</p>
       </button>
       )}
     </div>
