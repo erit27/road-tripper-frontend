@@ -27,7 +27,7 @@ export default function Photos({serverUrl}) {
 
   return (
   <div className="box">
-    <Carousel  useKeyboardArrows={true}>
+    <Carousel className='box__carousel' useKeyboardArrows={true}>
       {formattedPhotos.map((URL, index) => (
         <div className="slide">
           <img className="photos__img" alt="sample_file" src={URL} key={index} />

@@ -4,7 +4,9 @@
 @use '../../styles/partials/variables' as *;  
 
 .gallery{
+
   &__wrapper {
+    background-color: $background;
     width: 100%;
     display: flex;
     align-items: center;

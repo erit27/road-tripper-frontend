@@ -3,17 +3,16 @@
 
 .box {
   width: 90vw;
-
-  @include tablet {
-    height: 60vh;
-    // width: 60vw;
+  background-color: $illsecondary;
+  &__carousel {
+    padding-top: 2rem;
   }
-  
 }
 
 .photos {
   &__img {
     max-height: 60vh;
     max-width: 100%;
+    object-fit: contain;
   }
 }
