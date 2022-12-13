@@ -7,7 +7,6 @@ import SinglePost from '../../components/SinglePost/SinglePost'
 export default function PostPage({serverUrl}) {
   const {id} = useParams();
 
-
   return (
     <>
       <SinglePost postId={id} serverUrl={serverUrl}/>

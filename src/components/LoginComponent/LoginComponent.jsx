@@ -1,18 +1,17 @@
 import './LoginComponent.scss';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import loginLogo from '../../assets/images/logos/logo_small_gold.svg';
 import motoLogo from '../../assets/images/logos/moto_logo.svg';
 import { useEffect, useState } from 'react';
 
-export default function LoginComponent({handleLogin, loggedIn, user, serverURL, loadProfile}) {
+export default function LoginComponent({handleLogin, loggedIn, user, serverUrl, loadProfile}) {
   const [formUser, setFormUser] = useState('')
   const [formPassword, setFormPassword] = useState('')
   const [nameError, setNameError] = useState(null);
   const [passwordError, setPasswordError] = useState(null)
 
   useEffect(() => {
-    if(formUser != '') {
+    if(formUser !== '') {
       setNameError(null)
     } else {
       setNameError(true)
@@ -20,7 +19,7 @@ export default function LoginComponent({handleLogin, loggedIn, user, serverURL, 
   }, [formUser])
 
   useEffect(() => {
-    if (formPassword != '') {
+    if (formPassword !== '') {
       setPasswordError(null)
     } else {
       setPasswordError(true)
@@ -33,7 +32,7 @@ export default function LoginComponent({handleLogin, loggedIn, user, serverURL, 
   //     alert('Please complete the log in form')
   //   } else {
   //     axios
-  //     .post(`${serverURL}/login`, {
+  //     .post(`${serverUrl}/login`, {
   //       username: event.target.username.value,
   //       password: event.target.password.value
   //     })

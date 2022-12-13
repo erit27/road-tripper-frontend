@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const API_KEY = process.env.REACT_APP_API_KEY || ``;
 
-function MapLoad({serverURL}) {
+function MapLoad({serverUrl}) {
   const [locations, setLocations] = useState([]);
   const center = useMemo(() => ({lat: -20, lng: -65}), [])
 
@@ -27,13 +27,13 @@ function MapLoad({serverURL}) {
   </GoogleMap>
 }
 
-export default function Map({serverURL}) {
+export default function Map({serverUrl}) {
   const { isLoaded } = useLoadScript({
       googleMapsApiKey: process.env.REACT_APP_API_KEY
     })
 
     if( !isLoaded) return <div>Loading...</div>
-  return <MapLoad serverURL={serverURL} />
+  return <MapLoad serverUrl={serverUrl} />
 
 }
 

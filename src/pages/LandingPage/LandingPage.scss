@@ -10,6 +10,7 @@
   justify-content: center;
   align-items: center;
   padding-top: 2rem;
+  background-color: $background;
   @include tablet {
     flex-direction: row;
     flex-wrap: wrap;

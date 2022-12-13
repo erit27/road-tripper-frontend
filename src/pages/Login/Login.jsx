@@ -1,15 +1,13 @@
 import './Login.scss';
 import axios from 'axios';
-import PageHeader from '../../components/PageHeader/PageHeader';
-import BodyTemplate from '../../components/BodyTemplate/BodyTemplate';
 import loginHero from '../../assets/images/images/login_hero.jpeg';
 import LoginComponent from '../../components/LoginComponent/LoginComponent';
 
-export default function Login({loggedIn, user, loadProfile, serverURL}) {
+export default function Login({loggedIn, user, loadProfile, serverUrl}) {
   const handleLogin = (event) => {
     event.preventDefault();
     axios
-      .post(`${serverURL}/login`, {
+      .post(`${serverUrl}/login`, {
         username: event.target.username.value,
         password: event.target.password.value
       })
@@ -28,7 +26,7 @@ export default function Login({loggedIn, user, loadProfile, serverURL}) {
           <img src={loginHero} alt="Motorcycle in mountains" className='login__hero'/>
         </div>
         <div className="login__right">
-          <LoginComponent handleLogin={handleLogin} loggedIn={loggedIn} user={user} serverUrl={serverURL} loadProfile={loadProfile}/>
+          <LoginComponent handleLogin={handleLogin} loggedIn={loggedIn} user={user} serverUrl={serverUrl} loadProfile={loadProfile}/>
         </div>
       </div>
     </>

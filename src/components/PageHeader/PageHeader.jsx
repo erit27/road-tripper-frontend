@@ -1,6 +1,6 @@
 import './PageHeader.scss';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
-import mobileLogo from '../../assets/images/logos/logo_small_blue.svg';
+import { Link, useNavigate } from 'react-router-dom';
+import mobileLogo from '../../assets/images/logos/logo_small_gold.svg';
 import tabletLogo from '../../assets/images/logos/logo_lg_blue.svg';
 import homeIcon from '../../assets/images/icons/posts.svg';
 import galleryIcon from '../../assets/images/icons/gallery.svg';

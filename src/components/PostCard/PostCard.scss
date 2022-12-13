@@ -5,7 +5,7 @@
   &__wrapper {
     width: 80%;
     height: 450px;
-    background-color: $rt2dark;
+    background-color: $illtertiary;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -31,13 +31,13 @@
 
   }
   &__details {
-    color: $rt1light;
+    color: $paragraph;
     padding: 1rem 1rem;
-    border-top: solid 2px $rt1light;
+    border-top: solid 2px $paragraph;
     @include m-h3;
   }
   &__title {
-    color: $rt1light;
+    color: $headline;
     padding: 0 1rem 1rem 1rem;
     @include m-h1;
   }

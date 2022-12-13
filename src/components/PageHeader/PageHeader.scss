@@ -3,13 +3,16 @@
 
 .pageHeader {
   &__wrapper{ 
-    background-color: $rt1mid;
+    background-color: $background;
     width: 100%;
     padding: 1rem 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
     @include tablet {
     flex-direction: row;
   
@@ -36,10 +39,6 @@
         width: 100%;
       }
     }
-  }
-  &__title {
-    color: $rt1dark;
-    font-size: 5rem;
   }
   &__nav{
     margin-top: 2rem;

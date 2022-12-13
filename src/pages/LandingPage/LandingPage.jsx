@@ -14,7 +14,6 @@ export default function LandingPage({serverUrl}) {
       .get(`${DB_URL}/posts/postinfo`)
       .then((response) => {
         setPosts(response.data);
-        console.log(response.data)
       })
       .catch((err) => console.log(err))
   }, [])
@@ -24,6 +23,7 @@ export default function LandingPage({serverUrl}) {
     <div className="posts">
       {posts.map((post) => (
         <PostCard 
+        key={post.id}
         className='posts_single'
         title={post.title}
         postId={post.id}

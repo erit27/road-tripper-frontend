@@ -4,36 +4,36 @@ import { useEffect, useState } from 'react';
 import { CloudinaryContext, Transformation, Image} from 'cloudinary-react';
 import {Cloudinary} from "@cloudinary/url-gen";
 import {fill} from "@cloudinary/url-gen/actions/resize";
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-
-export default function Photos({serverURL}) {
+export default function Photos({serverUrl}) {
   const [photos, setPhotos] = useState([]);
+  const [formattedPhotos, setFormattedPhotos] = useState([])
 
   useEffect(() => {
     axios
-      .get(`${serverURL}/photos`)
+      .get(`${serverUrl}/photos`)
       .then((response) => {
         setPhotos(response.data);
-        // console.log(response.data)
       })
       .catch((err) => console.log(err))
   }, [])
 
-  // const cld = new Cloudinary({
-  //   cloud: {
-  //     cloudName: 'dgmhbuw8l'
-  //   }
-  // })
+  useEffect(() => {
+    const images = photos.map(photo => (photo.secure_url))
+    setFormattedPhotos(images)
+  }, [photos])
 
   return (
-    <div>
-      <div className="images__gallery">
-        {photos.map(photo => {
-          return (
-            <img key ={photo.public_id} src={photo.secure_url} alt={photo.public_id} width='200px' height='200px' />
-          )
-        })}
-      </div>
+  <div className="box">
+    <Carousel  useKeyboardArrows={true}>
+      {formattedPhotos.map((URL, index) => (
+        <div className="slide">
+          <img className="photos__img" alt="sample_file" src={URL} key={index} />
+        </div>
+      ))}
+    </Carousel>
     </div>
   )
 }

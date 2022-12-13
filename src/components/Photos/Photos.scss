@@ -1,0 +1,19 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.box {
+  width: 90vw;
+
+  @include tablet {
+    height: 60vh;
+    // width: 60vw;
+  }
+  
+}
+
+.photos {
+  &__img {
+    max-height: 60vh;
+    max-width: 100%;
+  }
+}

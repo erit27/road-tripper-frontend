@@ -12,15 +12,12 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import axios from 'axios';
 
-const serverURL = 'http://localhost:8080';
-const loginURL = `${serverURL}/login`;
-const signupURL = `${loginURL}/createaccount`;
+const serverUrl = 'http://localhost:8080';
 
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [access, setAccess] = useState('public')
   const [user, setUser] = useState(null);
-  const [isSignedUp, setIsSignedUp] = useState(false);
 
   useEffect( () => {
     const jwtToken = localStorage.getItem('jwt_token');
@@ -31,7 +28,7 @@ export default function App() {
 
   const loadProfile = (jwtToken) => {
     axios
-      .get(`${serverURL}/profile`, {
+      .get(`${serverUrl}/profile`, {
         headers: {
           Authorization: `Bearer ${jwtToken}`
         }
@@ -58,7 +55,7 @@ export default function App() {
   const handleSignup = (event) => {
     event.preventDefault();
     axios
-      .post(`${serverURL}/createaccount`, {
+      .post(`${serverUrl}/createaccount`, {
         username: event.target.username.value,
         password: event.target.password.value,
         firstName: event.target.firstName.value,
@@ -66,7 +63,7 @@ export default function App() {
       })
       .then( (response) => {
         if(response.data.success) {
-          setIsSignedUp(true);
+          console.log("User signed up: ", response.data.success)
         }
       })
       .catch(err=> console.log(err))
@@ -78,14 +75,14 @@ export default function App() {
         <div className="App">
           <PageHeader loggedIn={loggedIn} handleLogout={handleLogout} access={access}/> 
         <Routes>
-          <Route path='/' element={<LandingPage serverUrl={serverURL}/>} />
-          <Route path='/posts/:id' element={<PostPage serverUrl={serverURL}/>} />
+          <Route path='/' element={<LandingPage serverUrl={serverUrl}/>} />
+          <Route path='/posts/:id' element={<PostPage serverUrl={serverUrl}/>} />
           <Route path='/aboutus' element={<AboutUs />} />
-          <Route path='/gallery' element={<Gallery serverURL={serverURL}/>} />
-          <Route path='/map' serverURL={serverURL} element={<Map />} />
-          <Route path='/login' element={<Login loggedIn={loggedIn} user={user} loadProfile={loadProfile} serverURL={serverURL}/>} /> 
+          <Route path='/gallery' element={<Gallery serverUrl={serverUrl}/>} />
+          <Route path='/map' serverUrl={serverUrl} element={<Map />} />
+          <Route path='/login' element={<Login loggedIn={loggedIn} user={user} loadProfile={loadProfile} serverUrl={serverUrl}/>} /> 
           <Route path='/createaccount' element={<CreateAccount handleSignup={handleSignup}/>} />
-          <Route access={access} path='/settings' element={<Settings loggedIn={loggedIn} serverURL={serverURL}/>} />
+          <Route access={access} path='/settings' element={<Settings loggedIn={loggedIn} serverUrl={serverUrl}/>} />
         </Routes>
         </div>
       </ BrowserRouter>

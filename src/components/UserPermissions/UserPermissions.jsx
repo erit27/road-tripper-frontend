@@ -3,9 +3,8 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
 import { checkboxClasses } from '@mui/material'
-import { useRef } from 'react'
 
-export default function UserPermissions({serverURL}) {
+export default function UserPermissions({serverUrl}) {
   const [users, setUsers] = useState([])
   const [checkedState, setCheckedState] = useState([]) 
 
@@ -26,14 +25,14 @@ export default function UserPermissions({serverURL}) {
       if (checkedState[i] === true) {
         userPermissionArray[i].access = 'family';
         axios
-          .put(`${serverURL}/users/updatepermissions`, userPermissionArray[i])
+          .put(`${serverUrl}/users/updatepermissions`, userPermissionArray[i])
           .then(() => {
         })
           .catch((err) => console.log(err))
       } else if ( checkedState[i] === false) {
         userPermissionArray[i].access = 'public'
         axios
-          .put(`${serverURL}/users/updatepermissions`, userPermissionArray[i])
+          .put(`${serverUrl}/users/updatepermissions`, userPermissionArray[i])
           .then(() => {
         })
           .catch((err) => console.log(err))
@@ -41,13 +40,11 @@ export default function UserPermissions({serverURL}) {
         console.log('something went wrong')
       }
     }
-    // console.log(userPermissionArray)
-    
   }
 
   useEffect( () => {
     axios
-      .get(`${serverURL}/users`)
+      .get(`${serverUrl}/users`)
       .then((response) => {
         setUsers(response.data)
       })

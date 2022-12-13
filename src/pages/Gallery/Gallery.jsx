@@ -3,11 +3,11 @@ import PageHeader from '../../components/PageHeader/PageHeader';
 import BodyTemplate from '../../components/BodyTemplate/BodyTemplate';
 import Photos from '../../components/Photos/Photos';
 
-export default function Gallery({serverURL}) {
+export default function Gallery({serverUrl}) {
   return (
-    <>
+    <div className='gallery__wrapper'>
 
-      <Photos serverURL={serverURL}/>
-    </>
+      <Photos serverUrl={serverUrl}/>
+    </div>
   )
 }

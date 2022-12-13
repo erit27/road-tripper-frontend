@@ -9,16 +9,16 @@ export default function relativeTime(timestamp) {
 
   //Return correct relative time based on how much time has elapsed
   if (elapsed <= oneMininMS) {
-      return "Just now"
+    return "Just now";
   } else if (elapsed < oneHrinMS) {
-      return Math.round(elapsed / oneMininMS) + ' minutes ago';
+    return Math.round(elapsed / oneMininMS) + " minutes ago";
   } else if (elapsed < oneDayinMs) {
-      return Math.round(elapsed / oneHrinMS) + ' hours ago';
+    return Math.round(elapsed / oneHrinMS) + " hours ago";
   } else if (elapsed < oneMonthinMS) {
-      return Math.round(elapsed / oneDayinMs) + ' days ago';
+    return Math.round(elapsed / oneDayinMs) + " days ago";
   } else if (elapsed < oneYearinMS) {
-      return Math.round(elapsed / oneMonthinMS) + ' months ago';
+    return Math.round(elapsed / oneMonthinMS) + " months ago";
   } else {
-      return Math.round (elapsed / oneYearinMS) + ' years ago';
+    return Math.round(elapsed / oneYearinMS) + " years ago";
   }
-  };
+}

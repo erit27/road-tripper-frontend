@@ -1,0 +1,73 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.sp {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: $background;
+  &__wrapper {
+    width: 80%;
+    background-color: $illsecondary;
+    border-radius: 10px;
+    border: solid 1px $headline;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    @include tablet {
+      width: 80%;
+    }
+    @include desktop {
+      width: 80%;
+    }
+    }
+  &__top {
+    height: 300px;
+    border-radius: 6px;
+    display: flex;
+    width: 100%;
+  }
+  &__bottom {
+    background-color: $illsecondary;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  &__hero {
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+  }
+  &__details {
+    color: $illstroke;
+    padding: 1rem;
+    border-top: solid 2px $rt1light;
+    background-color: $illhighlight;
+    @include m-h3;
+  }
+  &__title {
+    color: $illstroke;
+    background-color: $illhighlight;
+    padding: 0 1rem 1rem 1rem;
+    @include m-h1;
+  }
+  &__subtitle {
+    @include m-h2;
+    @include tablet {
+      @include dt-h2;
+    }
+  }
+  &__privateContent {
+    padding: 1rem;
+    background-color: $illsecondary;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  &__content {
+    padding: 1rem;
+    background-color: $illmain;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+}
