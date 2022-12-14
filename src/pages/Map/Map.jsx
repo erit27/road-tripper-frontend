@@ -8,10 +8,15 @@ const API_KEY = process.env.REACT_APP_API_KEY || ``;
 function MapLoad({serverUrl}) {
   const [locations, setLocations] = useState([]);
   const center = useMemo(() => ({lat: -20, lng: -65}), [])
+  const jwtToken = localStorage.getItem('jwt_token');
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/locations`)
+      .get(`http://localhost:8080/locations`, {
+        headers: {
+          Authorization: `Bearer ${jwtToken}`
+        }
+      })
       .then((response) => {
         setLocations(response.data)
       })

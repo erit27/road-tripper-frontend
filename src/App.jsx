@@ -14,10 +14,12 @@ import axios from 'axios';
 
 const serverUrl = 'http://localhost:8080';
 
+
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [access, setAccess] = useState('public')
   const [user, setUser] = useState(null);
+
 
   useEffect( () => {
     const jwtToken = localStorage.getItem('jwt_token');
@@ -50,6 +52,7 @@ export default function App() {
     setUser(null);
     setAccess('public')
     localStorage.removeItem('jwt_token');
+    // navigate('/login')
   };
 
   const handleSignup = (event) => {
@@ -65,6 +68,7 @@ export default function App() {
         if(response.data.success) {
           console.log("User signed up: ", response.data.success)
         }
+        // navigate('/login')
       })
       .catch(err=> console.log(err))
   }
@@ -77,7 +81,6 @@ export default function App() {
         <Routes>
           <Route path='/' element={<LandingPage serverUrl={serverUrl}/>} />
           <Route path='/posts/:id' element={<PostPage serverUrl={serverUrl}/>} />
-          <Route path='/aboutus' element={<AboutUs />} />
           <Route path='/gallery' element={<Gallery serverUrl={serverUrl}/>} />
           <Route path='/map' serverUrl={serverUrl} element={<Map />} />
           <Route path='/login' element={<Login loggedIn={loggedIn} user={user} loadProfile={loadProfile} serverUrl={serverUrl}/>} /> 

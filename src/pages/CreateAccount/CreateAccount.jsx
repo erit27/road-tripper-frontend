@@ -5,7 +5,6 @@ import NewUserComponent from '../../components/NewUserComponent/NewUserComponent
 import axios from 'axios';
 
 export default function CreateAccount({handleSignup}) {
-
   return (
     <>
 
