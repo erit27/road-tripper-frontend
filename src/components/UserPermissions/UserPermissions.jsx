@@ -8,21 +8,54 @@ export default function UserPermissions({serverUrl}) {
   const [users, setUsers] = useState([])
   const [checkedState, setCheckedState] = useState([]) 
 
+
+  useEffect( () => {
+    axios
+      .get(`${serverUrl}/users`)
+      .then((response) => {
+        setUsers(response.data)
+      })
+      .catch()
+  }, [])
+
+  useEffect( () => {
+    let userState = new Array(users.length).fill(false);
+    console.log(userState)
+    for (let i=0; i<users.length; i++) {
+      if (users[i].access === 'family' || users[i].access ==='admin') {
+        userState[i] = true
+      } else {
+        userState[i] = false
+      }
+    }
+    setCheckedState(userState)
+  }, [users])
+
   const handleOnChange = (position) => {
     const updatedCheckedState = checkedState.map((item, index) => 
       index === position? !item : item
     )
+    console.log(updatedCheckedState)
     setCheckedState(updatedCheckedState);
   }
 
   const handlePermissionSubmit = (event) => {
     event.preventDefault();
     const userPermissionArray= users.map(user=> ({
+      username: user.username,
       id: user.id,
       access: user.access,
     }))
     for (let i=0; i<checkedState.length; i++) {
-      if (checkedState[i] === true) {
+      if (userPermissionArray[i].username === 'zmoto' || userPermissionArray[i].username === 'eilidhritchie') {
+        userPermissionArray[i].access = 'admin';
+        axios
+          .put(`${serverUrl}/users/updatepermissions`, userPermissionArray[i])
+          .then(() => {console.log('permissions updated for admin')})
+          .catch((err) => console.log(err))
+
+      } else {
+        if (checkedState[i] === true) {
         userPermissionArray[i].access = 'family';
         axios
           .put(`${serverUrl}/users/updatepermissions`, userPermissionArray[i])
@@ -39,28 +72,12 @@ export default function UserPermissions({serverUrl}) {
       } else {
         console.log('something went wrong')
       }
+      }
     }
   }
 
-  useEffect( () => {
-    axios
-      .get(`${serverUrl}/users`)
-      .then((response) => {
-        setUsers(response.data)
-      })
-      .catch()
-  }, [])
+  
 
-  useEffect( () => {
-    const userState = new Array(users.length).fill(false);
-    setCheckedState(userState)
-  }, [users])
-
-  useEffect ( () => {
-    console.log(checkedState)
-  }, [checkedState])
-
- 
   return ( 
     <>
     <div className="up__wrap">
@@ -78,6 +95,7 @@ export default function UserPermissions({serverUrl}) {
                     name = {username}
                     value = {username}
                     checked = {checkedState[index]}
+                    // checked = { (access === 'family' || access === 'admin')? true: checkedState[index]}
                     onChange = {()=> handleOnChange(index)}
                   />
                   <label htmlFor={`custom-checkbox-${index}`}>{username}</label>

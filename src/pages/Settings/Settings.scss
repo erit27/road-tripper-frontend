@@ -9,6 +9,7 @@
     @include dt-h1;
   }
   &__wrap {
+    background-color: $background;
     display: flex;
     flex-direction: column;
     width: 100%;
