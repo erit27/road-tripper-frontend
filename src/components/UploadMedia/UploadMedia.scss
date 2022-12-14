@@ -1,0 +1,15 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.um{
+  &__btn {
+    width: 80%;
+    background-color: $button;
+    border: solid 2px $illtertiary;
+    margin: 2rem;
+    @include m-h1;
+    @include tablet {
+      @include dt-h1;
+    }
+  }
+}

@@ -18,8 +18,8 @@ export default function UploadMedia() {
   }, []);
 
   return (
-    <button onClick= {()=> widgetRef.current.open()}>
-      Upload 
+    <button className="btn um__btn" onClick= {()=> widgetRef.current.open()}>
+      Upload Photos
     </button>
   )
 }

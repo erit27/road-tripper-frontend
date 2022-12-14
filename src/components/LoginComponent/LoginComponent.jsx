@@ -26,26 +26,6 @@ export default function LoginComponent({handleLogin, loggedIn, user, serverUrl, 
     }
   }, [formPassword])
 
-  // const handleLogin = (event) => {
-  //   event.preventDefault();
-  //   if( nameError === true || passwordError === true) {
-  //     alert('Please complete the log in form')
-  //   } else {
-  //     axios
-  //     .post(`${serverUrl}/login`, {
-  //       username: event.target.username.value,
-  //       password: event.target.password.value
-  //     })
-  //     .then((response) => {
-  //       if(response.data.token) {
-  //         loadProfile(response.data.token);
-  //         localStorage.setItem('jwt_token', response.data.token);
-  //       }
-  //     })
-  //     .catch((err) => {console.log(err, `there was an error logging you in `)})
-  //   }    
-  //   }
-
   return (
     <div className="login__wrapper">
       <div className="login__logo">
@@ -94,8 +74,11 @@ export default function LoginComponent({handleLogin, loggedIn, user, serverUrl, 
           <h2 className='login__welcome'> Welcome Back {user.username} </h2>
         </div>
       )}
+      { !loggedIn? 
       
       <div className="login__new"><Link to='/createaccount'>New user? Create Account here!</Link></div>
+       : ''}
+      
     </div> 
     
     
