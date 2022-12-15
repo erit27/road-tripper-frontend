@@ -5,7 +5,7 @@ export default function PostList({posts}) {
   console.log('posts', posts)
   return (
     <div className='pl'>
-     <h1 className='pl__title'>Posts Summary</h1>
+    <h1 className='pl__title'>Posts Summary</h1>
       <div className="pl__wrapper">
         <div className="pl__individual">
           <div className="pl__left">POST TITLE</div>

@@ -85,7 +85,7 @@ export default function App() {
           <Route path='/map' serverUrl={serverUrl} element={<Map />} />
           <Route path='/login' element={<Login loggedIn={loggedIn} user={user} loadProfile={loadProfile} serverUrl={serverUrl}/>} /> 
           <Route path='/createaccount' element={<CreateAccount handleSignup={handleSignup}/>} />
-          <Route access={access} path='/settings' element={<Settings loggedIn={loggedIn} serverUrl={serverUrl} user={user}/>} />
+          <Route  path='/settings' element={<Settings access={access} loggedIn={loggedIn} serverUrl={serverUrl} user={user}/>} />
         </Routes>
         </div>
       </ BrowserRouter>
