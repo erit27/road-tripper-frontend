@@ -4,6 +4,7 @@
 @use '../../styles/partials/variables' as *;  
 
 .settings {
+  color: $headline;
   @include m-h1;
   @include tablet {
     @include dt-h1;

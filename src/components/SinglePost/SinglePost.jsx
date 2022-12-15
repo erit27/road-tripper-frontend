@@ -1,5 +1,4 @@
 import './SinglePost.scss';
-import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import relativeTime from '../../Utils';
@@ -18,7 +17,6 @@ export default function SinglePost({postId, serverUrl}) {
       })
       .then((response) => {
         setPost(response.data)
-        // console.log(response.data)
       })
       .catch((error) => {
         console.log(error)

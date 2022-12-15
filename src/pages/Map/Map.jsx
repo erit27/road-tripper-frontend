@@ -2,6 +2,8 @@ import './Map.scss';
 import { useMemo, useState, useEffect } from 'react';
 import { GoogleMap, useLoadScript, MarkerF } from '@react-google-maps/api'
 import axios from 'axios';
+import motorcycleIcon from '../../assets/images/icons/motorcycle.svg'
+
 
 const API_KEY = process.env.REACT_APP_API_KEY || ``;
 
@@ -9,6 +11,7 @@ function MapLoad({serverUrl}) {
   const [locations, setLocations] = useState([]);
   const center = useMemo(() => ({lat: -20, lng: -65}), [])
   const jwtToken = localStorage.getItem('jwt_token');
+  const mapStyle =require('../../assets/mapStyle.json') ;
 
   useEffect(() => {
     axios
@@ -24,9 +27,9 @@ function MapLoad({serverUrl}) {
   }, [])
  
 
-  return <GoogleMap zoom= {3} center={center} mapContainerClassName='map__container'> 
+  return <GoogleMap options={{styles: mapStyle}} zoom= {3} center={center} mapContainerClassName='map__container'> 
     {locations.map((loc) => (
-      <MarkerF key={loc.lat} position={{lat: loc.lat, lng: loc.long}} />
+      <MarkerF  key={loc.lat} position={{lat: loc.lat, lng: loc.long}} />
       // key={API_KEY} was above before
     ))}
   </GoogleMap>

@@ -13,7 +13,7 @@
     width: 100%;
     @include tablet {
       background-image: none;
-      background-color: $rt1light;
+      background-color: $paragraph;
     }
   }
   &__left{

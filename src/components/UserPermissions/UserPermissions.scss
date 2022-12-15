@@ -6,13 +6,35 @@
     background-color: $illsecondary;
     margin: 1rem;
     padding: 1rem;
-    width: 100%;
-    border: solid 1px red;
+    border: solid 3px $illtertiary;
+    border-radius: 10px;
+    width: 80%;
+    @include tablet {
+      width: 50%;
+    }
   }
   &__title {
+    margin-bottom: 1rem;
     @include m-h2;
     @include tablet {
       @include dt-h2;
+    }
+  }
+  &__subtitle {
+    display: flex;
+    flex-direction: row;
+    @include m-h2;
+  }
+  &__left {
+    width: 40%;
+    @include tablet {
+      width: 50%;
+    }
+  }
+  &__right {
+    width: 40%;
+    @include tablet {
+      width: 50%;
     }
   }
   &__flex {
@@ -20,10 +42,19 @@
     flex-direction: row;
     // justify-content: space-around;
     &--left {
-      width: 20%;
+      width: 40%;
+      @include tablet {
+        width: 50%;
+      }
     }
     &--right {
-      width: 30%;
+      width: 40%;
+      @include tablet {
+        width: 50%;
+      }
     }
+  }
+  &__btn {
+    margin: 1rem;
   }
 }

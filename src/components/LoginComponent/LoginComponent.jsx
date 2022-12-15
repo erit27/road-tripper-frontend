@@ -75,7 +75,6 @@ export default function LoginComponent({handleLogin, loggedIn, user, serverUrl, 
         </div>
       )}
       { !loggedIn? 
-      
       <div className="login__new"><Link to='/createaccount'>New user? Create Account here!</Link></div>
        : ''}
       

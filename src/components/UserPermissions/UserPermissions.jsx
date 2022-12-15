@@ -3,11 +3,12 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
 import { checkboxClasses } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
 export default function UserPermissions({serverUrl}) {
   const [users, setUsers] = useState([])
   const [checkedState, setCheckedState] = useState([]) 
-
+  const navigate=useNavigate();
 
   useEffect( () => {
     axios
@@ -20,7 +21,6 @@ export default function UserPermissions({serverUrl}) {
 
   useEffect( () => {
     let userState = new Array(users.length).fill(false);
-    console.log(userState)
     for (let i=0; i<users.length; i++) {
       if (users[i].access === 'family' || users[i].access ==='admin') {
         userState[i] = true
@@ -35,7 +35,6 @@ export default function UserPermissions({serverUrl}) {
     const updatedCheckedState = checkedState.map((item, index) => 
       index === position? !item : item
     )
-    console.log(updatedCheckedState)
     setCheckedState(updatedCheckedState);
   }
 
@@ -74,16 +73,19 @@ export default function UserPermissions({serverUrl}) {
       }
       }
     }
+    navigate('/')
   }
-
   
-
   return ( 
     <>
     <div className="up__wrap">
       <h1 className="up__title">Adjust Permissions</h1>
+      <div className="up__subtitle">
+        <div className="up__left">Username</div>
+        <div className="up__right">Name</div>
+      </div>
       <form onSubmit={handlePermissionSubmit}>
-      <ul className="up__list">
+      <ul className="up__list">   
         {users.map(({id, access, username, firstName, lastName}, index) => {
           return (
             <li key = {index}>
@@ -95,20 +97,21 @@ export default function UserPermissions({serverUrl}) {
                     name = {username}
                     value = {username}
                     checked = {checkedState[index]}
-                    // checked = { (access === 'family' || access === 'admin')? true: checkedState[index]}
                     onChange = {()=> handleOnChange(index)}
                   />
                   <label htmlFor={`custom-checkbox-${index}`}>{username}</label>
                 </div>
                 <div className="up__flex--right">
-                  {`name: ${firstName}, ${lastName}`}
+                  {firstName} 
                 </div>
               </div>
+              
             </li> 
+            
           )
         })}
       </ul>
-      <button className='btn' type='submit'> Save Permissions </button>
+      <button className='btn up__btn' type='submit'> Save Permissions </button>
       </form>
     </div>
     </>

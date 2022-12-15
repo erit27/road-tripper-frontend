@@ -5,11 +5,17 @@
   &__btn {
     width: 80%;
     background-color: $button;
-    border: solid 2px $illtertiary;
+    border: solid 3px red;
     margin: 2rem;
-    @include m-h1;
     @include tablet {
-      @include dt-h1;
+      width: 50%;
+    }
+    &:hover {
+      color: $illtertiary;
+    }
+    @include m-h2;
+    @include tablet {
+      @include dt-h2;
     }
   }
 }
