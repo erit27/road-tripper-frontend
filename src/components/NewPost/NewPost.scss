@@ -1,0 +1,51 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.np{
+  &__wrap {
+    padding: 2rem;
+    background-color: $illhighlight;
+    border-radius: 10px;
+    border: solid 3px $illsecondary;
+    width: 80%;
+    @include tablet {
+      width: 50%;
+    }
+  }
+  &__title {
+    margin-bottom: 1rem;
+    @include m-h2;
+    @include tablet {
+      @include dt-h2;
+    }
+  }
+  &__form {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+  }
+  &__formWrap {
+
+  }
+  &__formLabel {
+    margin: 0.5rem 0;
+  }
+  &__formElement{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: 0.25rem 0;
+  }
+  &__postTitle, &__postContent, &__postPhoto, &__postPrivateContent {
+    padding: 1rem;
+    border: solid 1px $illsecondary;
+    border-radius: 4px;
+    background-color: $illsecondary;
+  }
+  &__btn{
+    margin: 1rem 0;
+    @include tablet {
+      width: 50%;
+    }
+  }
+}
