@@ -7,7 +7,6 @@ const DB_URL = process.env.REACT_APP_SERVER_URL || ``;
 
 export default function LandingPage({serverUrl}) {
   const [posts, setPosts] = useState([]);
-  const [users, setUsers] = useState([])
 
   useEffect(() => {
     axios
@@ -17,7 +16,6 @@ export default function LandingPage({serverUrl}) {
       })
       .catch((err) => console.log(err))
   }, [])
-  
 
   return (
     <div className="posts">

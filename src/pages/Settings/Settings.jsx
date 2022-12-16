@@ -6,7 +6,7 @@ import UploadMedia from '../../components/UploadMedia/UploadMedia'
 import NewPost from '../../components/NewPost/NewPost'
 import PostList from '../../components/PostList/PostList'
 
-export default function Settings({serverUrl, loggedIn, user}) {
+export default function Settings({serverUrl, user}) {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {

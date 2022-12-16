@@ -1,21 +1,22 @@
-import './CreateAccount.scss';
-import PageHeader from '../../components/PageHeader/PageHeader';
-import loginHero from '../../assets/images/images/login_hero.jpeg';
-import NewUserComponent from '../../components/NewUserComponent/NewUserComponent';
-import axios from 'axios';
+import "./CreateAccount.scss";
+import loginHero from "../../assets/images/images/login_hero.jpeg";
+import NewUserComponent from "../../components/NewUserComponent/NewUserComponent";
 
-export default function CreateAccount({handleSignup}) {
+export default function CreateAccount({ handleSignup }) {
   return (
     <>
-
       <div className="login__wrap">
         <div className="login__left">
-          <img src={loginHero} alt="Motorcycle in mountains" className='login__hero'/>
+          <img
+            src={loginHero}
+            alt="Motorcycle in mountains"
+            className="login__hero"
+          />
         </div>
         <div className="login__right">
-          <NewUserComponent handleSignup={handleSignup}/>
+          <NewUserComponent handleSignup={handleSignup} />
         </div>
       </div>
     </>
-  )
+  );
 }

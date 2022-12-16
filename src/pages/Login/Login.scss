@@ -4,6 +4,7 @@
 @use '../../styles/partials/variables' as *;  
 
 .login {
+  background-color: $background;
   &__wrap {
     background-image: url('../../assets/images/images/login_hero.jpeg');
     background-size: cover;

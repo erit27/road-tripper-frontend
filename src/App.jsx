@@ -47,7 +47,6 @@ export default function App() {
     setUser(null);
     setAccess('public')
     localStorage.removeItem('jwt_token');
-    // navigate('/login')
   };
 
   const handleSignup = (event) => {
@@ -63,13 +62,12 @@ export default function App() {
         if(response.data.success) {
           console.log("User signed up: ", response.data.success)
         }
-        // navigate('/login')
+        alert("New user was created! Please log in now")
       })
       .catch(err=> console.log(err))
   }
 
   return (
-    
       <BrowserRouter>
         <div className="App">
           <PageHeader loggedIn={loggedIn} handleLogout={handleLogout} access={access}/> 
@@ -80,7 +78,7 @@ export default function App() {
           <Route path='/map' serverUrl={serverUrl} element={<Map />} />
           <Route path='/login' element={<Login loggedIn={loggedIn} user={user} loadProfile={loadProfile} serverUrl={serverUrl}/>} /> 
           <Route path='/createaccount' element={<CreateAccount handleSignup={handleSignup}/>} />
-          <Route  path='/settings' element={<Settings access={access} loggedIn={loggedIn} serverUrl={serverUrl} user={user}/>} />
+          <Route  path='/settings' element={<Settings access={access}  serverUrl={serverUrl} user={user}/>} />
         </Routes>
         </div>
       </ BrowserRouter>

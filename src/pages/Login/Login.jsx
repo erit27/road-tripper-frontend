@@ -19,8 +19,9 @@ export default function Login({loggedIn, user, loadProfile, serverUrl}) {
       })
       .catch((err) => {console.log(err, `there was an error logging you in `)})
     }
+    
   return (
-    <>
+    <div className='login'>
       <div className="login__wrap">
         <div className="login__left">
           <img src={loginHero} alt="Motorcycle in mountains" className='login__hero'/>
@@ -29,6 +30,6 @@ export default function Login({loggedIn, user, loadProfile, serverUrl}) {
           <LoginComponent handleLogin={handleLogin} loggedIn={loggedIn} user={user} serverUrl={serverUrl} loadProfile={loadProfile}/>
         </div>
       </div>
-    </>
+    </div>
   )
 }

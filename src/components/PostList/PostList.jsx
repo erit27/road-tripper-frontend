@@ -1,20 +1,23 @@
 import "./PostList.scss";
 import deleteIcon from "../../assets/images/icons/delete.svg";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function PostList({ serverUrl, posts }) {
+  const navigate = useNavigate();
+
   const handleDelete = (postId) => {
     axios
       .delete(`${serverUrl}/posts/${postId}`)
       .then((response) => {
         console.log(response);
+        alert(`Your post was deleted!`);
+        navigate(`/`);
       })
       .catch((err) => {
         console.log(err);
       });
   };
-
-  // onClick={handleDelete(post.id)}
 
   return (
     <div className="pl">

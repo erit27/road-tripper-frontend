@@ -4,7 +4,7 @@ import loginLogo from '../../assets/images/logos/logo_small_gold.svg';
 import motoLogo from '../../assets/images/logos/moto_logo.svg';
 import { useEffect, useState } from 'react';
 
-export default function LoginComponent({handleLogin, loggedIn, user, serverUrl, loadProfile}) {
+export default function LoginComponent({handleLogin, loggedIn, user}) {
   const [formUser, setFormUser] = useState('')
   const [formPassword, setFormPassword] = useState('')
   const [nameError, setNameError] = useState(null);
@@ -76,7 +76,7 @@ export default function LoginComponent({handleLogin, loggedIn, user, serverUrl, 
       )}
       { !loggedIn? 
       <div className="login__new"><Link to='/createaccount'>New user? Create Account here!</Link></div>
-       : ''}
+      : ''}
       
     </div> 
     

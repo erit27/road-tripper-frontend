@@ -2,12 +2,8 @@ import './NewUserComponent.scss';
 import '../LoginComponent/LoginComponent.scss';
 import loginLogo from '../../assets/images/logos/logo_small_gold.svg';
 import motoLogo from '../../assets/images/logos/moto_logo.svg';
-import { useState } from 'react';
-import axios from 'axios';
 
 export default function NewUserComponent({handleSignup}) {
-
-
   return (
     <div className="newUser__wrapper">
       <div className="newUser__logo">

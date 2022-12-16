@@ -7,6 +7,7 @@
     height: 450px;
     background-color: $illtertiary;
     border-radius: 10px;
+    border: solid 2px $illhighlight;
     display: flex;
     flex-direction: column;
     margin: 1rem;
@@ -31,9 +32,9 @@
 
   }
   &__details {
-    color: $paragraph;
+    color: $headline;
     padding: 1rem 1rem;
-    border-top: solid 2px $paragraph;
+    border-top: solid 2px $illhighlight;
     @include m-h3;
   }
   &__title {

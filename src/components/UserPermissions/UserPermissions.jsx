@@ -45,7 +45,7 @@ export default function UserPermissions({serverUrl}) {
       access: user.access,
     }))
     for (let i=0; i<checkedState.length; i++) {
-      if (userPermissionArray[i].username === 'zmoto' || userPermissionArray[i].username === 'eilidhritchie') {
+      if (userPermissionArray[i].username === 'henry' || userPermissionArray[i].username === 'eilidhritchie' || userPermissionArray[i].username === 'matthew') {
         userPermissionArray[i].access = 'admin';
         axios
           .put(`${serverUrl}/users/updatepermissions`, userPermissionArray[i])
@@ -85,7 +85,7 @@ export default function UserPermissions({serverUrl}) {
       </div>
       <form onSubmit={handlePermissionSubmit}>
       <ul className="up__list">   
-        {users.map(({id, access, username, firstName, lastName}, index) => {
+        {users.map(({ username, firstName}, index) => {
           return (
             <li key = {index}>
               <div className="up__flex">

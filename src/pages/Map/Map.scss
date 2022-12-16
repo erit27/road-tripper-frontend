@@ -5,12 +5,18 @@
 
 
 .map{
+  @include desktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $background;
+  }
   &__container {
     width: 100%;
     height: 100vh;
     @include desktop {
-      width: 50%;
-      height: 70vh;
+      width: 70%;
+      // height: 70vh;
     }
     
   }
