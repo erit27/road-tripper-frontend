@@ -2,8 +2,6 @@ import './Map.scss';
 import { useMemo, useState, useEffect } from 'react';
 import { GoogleMap, useLoadScript, MarkerF } from '@react-google-maps/api'
 import axios from 'axios';
-import motorcycleIcon from '../../assets/images/icons/motorcycle.svg'
-
 
 const API_KEY = process.env.REACT_APP_API_KEY || ``;
 

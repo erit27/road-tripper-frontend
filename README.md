@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Road Tripper - Front End
+Road Tripper is a travel blog tailored to road trippers. It includes a map to outline the progress of the travellers, a gallery, and a post page. The site admins are able to grant access to users to also view 'family/friends only' content. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Related
+Here is the server for this project:
+[Road Tripper Back End](https://github.com/erit27/road-tripper-backend)
 
-## Available Scripts
+## Set Up
+1. Git Clone repository to your local machine. 
+2. Install required dependencies: 
+``` npm install ```
+3. Start the server in a seperate terminal:
+``` npm run dev```
+4. To start the site: 
+``` npm start ```
 
-In the project directory, you can run:
+## Environment Variables
+A .env.sample has been provided, but you will need to create your own .env file with the appropriate fields: 
+* A cloudinary name, key, and secret credentials can be obtained for free, please refer to the [Cloudinary developer get started guide](https://cloudinary.com/documentation/how_to_integrate_cloudinary) for more detail. 
+* The REACT_APP_API_KEY refers to the Google Maps API key, you will need to sign up for your [own google maps api key](https://developers.google.com/maps)
+* The server URL is preset to 8080, but you will need to change it if you are running the server on a different port.
 
-### `npm start`
+## Technologies Used
+### Framework : [React](https://reactjs.org/)
+### Styling: [Sass](https://sass-lang.com/documentation/js-api/)
+### API's: 
+#### [Google Maps API](https://developers.google.com/maps)
+#### [Cloudinary](https://cloudinary.com/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Libraries:
+#### [React Router](https://www.npmjs.com/package/react-router-dom)
+#### [Axios](https://www.npmjs.com/package/axios)
+#### [React Response Carousel](https://www.npmjs.com/package/react-responsive-carousel)
+#### [React Google Maps](https://www.npmjs.com/package/react-google-maps)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Backend: See [Road Tripper Back End](https://github.com/erit27/road-tripper-backend)
