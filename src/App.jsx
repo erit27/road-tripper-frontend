@@ -1,6 +1,5 @@
 import LandingPage from './pages/LandingPage/LandingPage';
 import PageHeader from './components/PageHeader/PageHeader';
-import AboutUs from './pages/AboutUs/AboutUs';
 import Gallery from './pages/Gallery/Gallery';
 import Login from './pages/Login/Login';
 import Map from './pages/Map/Map';
@@ -14,12 +13,10 @@ import axios from 'axios';
 
 const serverUrl = 'http://localhost:8080';
 
-
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [access, setAccess] = useState('public')
   const [user, setUser] = useState(null);
-
 
   useEffect( () => {
     const jwtToken = localStorage.getItem('jwt_token');

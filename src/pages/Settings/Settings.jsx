@@ -14,7 +14,6 @@ export default function Settings({serverUrl, loggedIn, user}) {
       .get(`${serverUrl}/posts/postinfo`)
       .then((response) => {
         setPosts(response.data);
-        console.log(response.data)
       })
       .catch((err) => console.log(err))
   }, [])
@@ -26,7 +25,7 @@ export default function Settings({serverUrl, loggedIn, user}) {
         <UploadMedia />
         <UserPermissions serverUrl={serverUrl}/>
         <NewPost serverUrl={serverUrl} user={user}/>
-        <PostList serverUrl={serverUrl} posts= {posts}/>
+        <PostList serverUrl={serverUrl} posts={posts}/>
       </div>
     </>
   )

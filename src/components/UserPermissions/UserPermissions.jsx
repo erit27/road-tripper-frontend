@@ -2,7 +2,6 @@ import './UserPermissions.scss'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
-import { checkboxClasses } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 
 export default function UserPermissions({serverUrl}) {

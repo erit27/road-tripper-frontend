@@ -87,6 +87,7 @@ export default function NewPost({serverUrl, user}) {
             name='postTitle'
             className='np__postTitle'
             placeholder='Post Title'
+            value={title}
             onChange={(e) => setTitle(e.target.value)} />
             {titleError && (
               <div className="np__error">This field is required</div>
@@ -99,6 +100,7 @@ export default function NewPost({serverUrl, user}) {
             name='postPhoto'
             className='np__postPhoto'
             placeholder='Post Photo'
+            value={heroUrl}
             onChange={(e) => setHeroUrl(e.target.value)} />
           </div>
           <div className="np__formElement">
@@ -109,7 +111,8 @@ export default function NewPost({serverUrl, user}) {
               name='postContent'
               className='np__postContent'
               placeholder='Write a post that will be publically viewable here!'
-              onChange={(e) => setPostContent(e.target.value)} />
+              value={postContent}
+              onChange={(e) => setPostContent(e.target.value)} ></textarea>
               {postError && (
               <div className="np__error">This field is required</div>
             )}
@@ -122,7 +125,8 @@ export default function NewPost({serverUrl, user}) {
             name='postPrivateContent'
             className='np__postPrivateContent'
             placeholder='Add additional content for family/friends only here!'
-            onChange={(e) => setPrivateContent(e.target.value)} />
+            value={privateContent}
+            onChange={(e) => setPrivateContent(e.target.value)} ></textarea>
             {privateContentError && (
               <div className="np__error">This field is required</div>
             )}
