@@ -4,7 +4,6 @@ import axios from "axios";
 
 export default function PostList({ serverUrl, posts }) {
   const handleDelete = (postId) => {
-    console.log(postId);
     axios
       .delete(`${serverUrl}/posts/${postId}`)
       .then((response) => {

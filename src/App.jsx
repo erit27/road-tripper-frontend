@@ -36,8 +36,6 @@ export default function App() {
         setLoggedIn(true);
         setUser(response.data.user);
         setAccess(response.data.user.access)
-        // console.log('user:', response.data.user)
-        console.log('access: ', (response.data.user.access))
       })
       .catch((error) => {
         console.log(error)

@@ -14,7 +14,6 @@ export default function LandingPage({serverUrl}) {
       .get(`${DB_URL}/posts/postinfo`)
       .then((response) => {
         setPosts(response.data);
-        console.log(response.data)
       })
       .catch((err) => console.log(err))
   }, [])
